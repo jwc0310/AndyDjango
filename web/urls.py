@@ -17,11 +17,24 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 
-from . import views
+from . import views, testdb, search, search2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello),
+    path('hello2/', views.hello3),
     path('andy/', views.andy),
     url(r'^$', views.hello2),
+    path('testdb/', testdb.query),
+    path('testdb/query/', testdb.query),
+    path('testdb/add/', testdb.add),
+    path('testdb/delete/', testdb.delete),
+    path('testdb/update/', testdb.update),
+
+    url(r'^search_form/$', search.search_form),
+    url(r'^search/$', search.search),
+
+    url(r'^search-post/$', search2.search_post),
+
+    url(r'^search-post2/$', search2.search_post2),
 ]
